@@ -41,7 +41,7 @@ Vagrant.configure("2") do |config|
    # Services-Hamburg Provider Config
    
     ser.vm.provider "virtualbox" do |vb|
-    vb.name = "Server1-Hamburg"
+    vb.name = "Services-Hamburg"
     vb.gui = false
     vb.memory =  "2048"
     vb.cpus = "2"
@@ -63,7 +63,7 @@ Vagrant.configure("2") do |config|
   # Backup-Hamburg Provider Config
      
     bs.vm.provider "virtualbox" do |vb|
-    vb.name = "Server2-Hamburg"
+    vb.name = "Backup-Hamburg"
     vb.gui = false
     vb.memory =  "2048"
     vb.cpus = "2"
