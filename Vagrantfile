@@ -10,21 +10,75 @@ Vagrant.configure("2") do |config|
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
   
-  config.vm.define "dc" do |dc|
-   dc.vm.box = "ubuntu/trusty64"
+  # Domaincontroller Config
+
+  config.vm.define "DC-Hamburg" do |dc|
+   dc.vm.hostname = "DC-Hamburg"
+   dc.vm.box = "gusztavvargadr/windows-server-2022-standard"
+  
+    # Domaincontroller Provider Config
+
+   dc.vm.provider "virtualbox" do |vb|
+   vb.name = "DC-Hamburg"
+   vb.gui = false
+   vb.memory =  "2048"
+   vb.cpus = "2"
   end
 
-  config.vm.define "server1" do |server1|
-    server1.vm.box = "ubuntu/trusty64"
-   end
+     # Domaincontroller Provisioning Config
 
-  config.vm.define "server2" do |server2|
-    server2.vm.box = "ubuntu/trusty64"
+    dc.vm.provision "shell", run: "always", inline: <<-SHELL
+      echo "Moooin Meister!"
+    SHELL
+  end
+
+    # Services-Hamburg Config
+
+  config.vm.define "Services-Hamburg" do |ser|
+    ser.vm.hostname = "Services-Hamburg"
+    ser.vm.box = "ubuntu/trusty64"
+     
+   # Services-Hamburg Provider Config
+   
+    ser.vm.provider "virtualbox" do |vb|
+    vb.name = "Server1-Hamburg"
+    vb.gui = false
+    vb.memory =  "2048"
+    vb.cpus = "2"
+  end
+  
+   # Services-Hamburg Provisioning Config
+
+    ser.vm.provision "shell", run: "always", inline: <<-SHELL
+      echo "Moooin Meister!"
+    SHELL
+  end
+
+  # Backup-Hamburg Config
+
+  config.vm.define "Backup-Hamburg" do |bs|
+    bs.vm.hostname = "Backup-Hamburg"
+    bs.vm.box = "ubuntu/trusty64"
+       
+  # Backup-Hamburg Provider Config
+     
+    bs.vm.provider "virtualbox" do |vb|
+    vb.name = "Server2-Hamburg"
+    vb.gui = false
+    vb.memory =  "2048"
+    vb.cpus = "2"
+  end
+    
+  # Backup-Hamburg Provisioning Config
+  
+    bs.vm.provision "shell", run: "always", inline: <<-SHELL
+      echo "Moooin Meister!"
+    SHELL
   end
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  #config.vm.box = "base"
+  # config.vm.box = "base"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
