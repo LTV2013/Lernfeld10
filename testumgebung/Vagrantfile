@@ -1,0 +1,56 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+  
+  # HH-DC-TEST Config
+
+  config.vm.define "HH-DC-TEST" do |dc|
+   dc.vm.hostname = "HH-DC-TEST"
+   dc.vm.box = "gusztavvargadr/windows-server-2022-standard"
+  
+    # HH-DC-TEST Provider Config
+
+   dc.vm.provider "virtualbox" do |vb|
+   vb.name = "HH-DC-TEST"
+   vb.gui = false
+   vb.memory =  "2048"
+   vb.cpus = "2"
+  end
+
+     # HH-DC-TEST Provisioning Config
+
+    dc.vm.provision "shell", run: "always", inline: <<-SHELL
+      echo "Moooin Meister!"
+    SHELL
+  end
+
+    # HH-SERVICES-TEST Config
+
+  config.vm.define "HH-SERVICES-TEST" do |ser|
+    ser.vm.hostname = "HH-SERVICES-TEST"
+    ser.vm.box = "ubuntu/trusty64"
+     
+   # HH-SERVICES-TEST Provider Config
+   
+    ser.vm.provider "virtualbox" do |vb|
+    vb.name = "HH-SERVICES-TEST"
+    vb.gui = false
+    vb.memory =  "2048"
+    vb.cpus = "2"
+  end
+  
+   # HH-SERVICES-TEST Provisioning Config
+
+    ser.vm.provision "shell", run: "always", inline: <<-SHELL
+      echo "Moooin Meister!"
+    SHELL
+  end
+end
