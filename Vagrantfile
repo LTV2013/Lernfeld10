@@ -9,84 +9,10 @@ Vagrant.configure("2") do |config|
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
-  
-  # Domaincontroller Config
-
-  config.vm.define "HH-DC-PRD" do |dc|
-   dc.vm.hostname = "HH-DC-PRD"
-   dc.vm.box = "gusztavvargadr/windows-server-2022-standard"
-  
-    # Domaincontroller Provider Config
-
-   dc.vm.provider "virtualbox" do |vb|
-   vb.name = "HH-DC-PRD"
-   vb.gui = false
-   vb.memory =  "4096"
-   vb.cpus = "2"
-  end
-
-     # Domaincontroller Provisioning Config
-
-    dc.vm.provision "shell", run: "always", inline: <<-SHELL
-      echo "Moooin Meister!"
-      powershell set-ExecutionPolicy Unrestricted
-      cd C:\vagrant\skripte\HH-DC-PRD\installfeatures.ps1
-      . .\installfeatures.ps1
-      installfeatures.ps1
-    SHELL
-  end
-
-    # HH-FILE-PRD Config
-
-  config.vm.define "HH-FILE-PRD" do |fl|
-    fl.vm.hostname = "HH-FILE-PRD"
-    fl.vm.box = "gusztavvargadr/windows-server-2022-standard"
-     
-   # HH-FILE-PRD Provider Config
-   
-    fl.vm.provider "virtualbox" do |vb|
-    vb.name = "HH-FILE-PRD"
-    vb.gui = false
-    vb.memory =  "2048"
-    vb.cpus = "2"
-  end
-  
-   # HH-FILE-PRD Provisioning Config
-
-    fl.vm.provision "shell", run: "always", inline: <<-SHELL
-      echo "Moooin Meister!"
-    SHELL
-  end
-
-  # HH-SERVICE-PRD Config
-
-  config.vm.define "HH-SERVICE-PRD" do |ser|
-    ser.vm.hostname = "HH-SERVICE-PRD"
-    ser.vm.box = "bento/ubuntu-22.04"
-       
-  # HH-SERVICE-PRD Provider Config
-     
-    ser.vm.provider "virtualbox" do |vb|
-    vb.name = "HH-SERVICE-PRD"
-    vb.gui = false
-    vb.memory =  "2048"
-    vb.cpus = "2"
-  end
-    
-  # HH-SERVICE-PRD Provisioning Config
-  
-    ser.vm.provision "shell", run: "always", inline: <<-SHELL
-      sudo loadkeys de
-      cd /vagrant/skripte/HH-SERVICE-PRD
-      chmod +x dependencies.sh
-      sed -i -e 's/^M$//' dependencies.sh
-      sudo /vagrant/skripte/HH-SERVICE-PRD/dependencies.sh 
-    SHELL
-  end
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  # config.vm.box = "base"
+  config.vm.box = "base"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs

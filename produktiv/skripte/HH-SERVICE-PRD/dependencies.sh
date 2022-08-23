@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/bash
 
-# sudo apt update && apt upgrade -y && apt dist-upgrade -y
+sudo apt update && apt upgrade -y && apt dist-upgrade -y
 
 sudo apt-get install -y \
     apt-transport-https \
