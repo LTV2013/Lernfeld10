@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0.5em 1em;
+}
+
+.top {
+    text-align: center;
+}
+
+.shopsection{
+    text-align: center;
+}
+
+.bgcolor{
+    background-color:rgba(224, 224, 3, 0.308);
+}
+
+.logo {
+    color: white;
+    background-color: palegoldenrod;
+    display: inline-block;
+    font-size: 32px;
+    font-weight: bold;
+    padding: 8px;
+    margin-top: 16px;
+}
+
+.logo-name {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 16px;
+}
+
+.navigationa a {
+    color: grey;
+    padding: 8px;
+}
+
+.navigation a:hover {
+    color: rgb(red, green, blue)
+}
+
+.navbutton{
+    padding: 1em;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+:hover.navbutton{
+    padding: 1em;
+    background-color:rgba(224, 224, 3, 0.747);
+    font-weight: bold;
+}
+
+.ccbild {
+    width: 100%;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}

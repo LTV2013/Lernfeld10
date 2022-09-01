@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  phpapache:
+    container_name: php-apache
+    build:
+        context: ./data/phpapache
+        dockerfile: Dockerfile
+    depends_on:
+        - database
+    ports:
+      - 8000:80
+  database:
+    container_name: mysql-db
+    build:
+        context: ./data/mysql
+        dockerfile: Dockerfile
+    restart: always
+    environment:
+        MYSQL_ROOT_PASSWORD: RootPassword123
+        MYSQL_DATABASE: shop-db
+        MYSQL_USER: MrShop
+        MYSQL_PASSWORD: ShopAdmin123
+    ports:
+        - "9906:3306"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+        - '8080:80'
+    restart: always
+    environment:
+        PMA_HOST: database
+    depends_on:
+        - database
