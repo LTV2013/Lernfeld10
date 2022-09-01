@@ -16,3 +16,7 @@ sudo add-apt-repository \
 sudo apt-get update
 sudo apt-get install -y docker-ce
 docker version
+
+# cd mnt/skripte/HH-SERVICE-PRD/docker
+# docker-compose up -d
+# docker ps
