@@ -2,6 +2,8 @@
 
 sudo apt update && apt upgrade -y && apt dist-upgrade -y
 
+sudo loadkeys de
+
 sudo apt-get install -y \
     apt-transport-https \
     ca-certificates \
