@@ -31,3 +31,9 @@ services:
         PMA_HOST: database
     depends_on:
         - database
+  grafana:
+    container_name: grafana-monitoring
+    image: grafana/grafana-oss
+    ports:
+        - '3000:3000'
+    restart: always

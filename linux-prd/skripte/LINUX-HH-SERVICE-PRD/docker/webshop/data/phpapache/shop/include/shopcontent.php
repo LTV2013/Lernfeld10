@@ -3,7 +3,7 @@
 //These are the defined authentication environment in the db service
 
 // The MySQL service named in the docker-compose.yml.
-$host = 'mysql-service';
+$host = 'database';
 
 // Database user name
 $user = 'root';
