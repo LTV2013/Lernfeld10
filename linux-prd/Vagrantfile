@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "LINUX-HH-DC-PRD" do |dc|
    dc.vm.hostname = "LINUX-HH-DC-PRD"
    dc.vm.box = "bento/ubuntu-22.04"
-   dc.vm.network "private_network", ip: "172.168.33.1"
+   #dc.vm.network "private_network", ip: "172.168.33.1"
   
     # Domaincontroller Provider Config
 
@@ -36,7 +36,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "LINUX-HH-FILE-PRD" do |fl|
     fl.vm.hostname = "LINUX-HH-FILE-PRD"
     fl.vm.box = "bento/ubuntu-22.04"
-    fl.vm.network "private_network", ip: "172.168.33.2"
+    #fl.vm.network "private_network", ip: "172.168.33.2"
      
    # HH-FILE-PRD Provider Config
    
@@ -59,7 +59,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "LINUX-HH-SERVICE-PRD" do |ser|
     ser.vm.hostname = "LINUX-HH-SERVICE-PRD"
     ser.vm.box = "bento/ubuntu-22.04"
-    ser.vm.network "private_network", ip: "172.168.33.3"
+    #ser.vm.network "private_network", ip: "172.168.33.3"
     
   # HH-SERVICE-PRD Provider Config
      

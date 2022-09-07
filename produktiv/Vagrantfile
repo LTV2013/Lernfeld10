@@ -71,11 +71,6 @@ Vagrant.configure("2") do |config|
   end
     
   # HH-SERVICE-PRD Provisioning Config
-  
-  #   ser.vm.provision "shell", run: "always", inline: <<-SHELL
-  #     sudo loadkeys de
-  #   SHELL
-  # end
     ser.vm.provision "shell", path: "skripte/HH-SERVICE-PRD/dependencies.sh"
   end
 
